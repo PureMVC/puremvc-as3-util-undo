@@ -12,3 +12,5 @@ Release Date: 02/20/08
 0.9 - Checked in initial folder structure and license - CLH
 
 1.0 - Created the main classes for the undoable system.
+
+1.1 - Updated to PureMVC 2.0.3

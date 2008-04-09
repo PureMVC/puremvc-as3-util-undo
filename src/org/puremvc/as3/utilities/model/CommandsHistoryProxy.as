@@ -6,9 +6,9 @@
 
 package org.puremvc.as3.utilities.model
 {
+	import org.puremvc.as3.interfaces.IProxy;
+	import org.puremvc.as3.patterns.proxy.Proxy;
 	import org.puremvc.as3.utilities.interfaces.IUndoableCommand;
-	import org.puremvc.interfaces.IProxy;
-	import org.puremvc.patterns.proxy.Proxy;
 
 	/**
 	 * The model that keeps track of the commands.

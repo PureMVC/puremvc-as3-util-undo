@@ -6,12 +6,13 @@
 
 package org.puremvc.as3.utilities.controller
 {
+	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.command.SimpleCommand;
 	import org.puremvc.as3.utilities.interfaces.IUndoableCommand;
 	import org.puremvc.as3.utilities.model.CommandsHistoryProxy;
 	import org.puremvc.as3.utilities.model.enum.UndoableCommandTypeEnum;
-	import org.puremvc.interfaces.ICommand;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.command.SimpleCommand;
+	
 	
 	/**
 	 * The base class for any undoable command.
@@ -47,6 +48,7 @@ package org.puremvc.as3.utilities.controller
 				var historyProxy:CommandsHistoryProxy = facade.retrieveProxy( CommandsHistoryProxy.NAME ) as CommandsHistoryProxy;
 				historyProxy.putCommand( this );
 			}
+			
 		}
 		
 		/**

@@ -5,9 +5,9 @@
  */
 package org.puremvc.as3.utilities.interfaces
 {
-	import org.puremvc.interfaces.ICommand;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.interfaces.INotifier;
+	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.interfaces.INotifier;
 	
 	public interface IUndoableCommand extends ICommand, INotifier
 	{
