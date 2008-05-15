@@ -6,6 +6,8 @@
 
 package org.puremvc.as3.utilities.controller
 {
+	import flash.utils.getQualifiedClassName;
+	
 	import org.puremvc.as3.interfaces.ICommand;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
@@ -116,6 +118,21 @@ package org.puremvc.as3.utilities.controller
 			}
 			
 			_note.setType( oldType );
+		}
+		
+		/**
+		 * Returns a display name for the undoable command.
+		 * <p>
+		 * By default, the name of the command is the name of the class.
+		 * You must override this method when ever you wnat to set a different name.
+		 * 
+		 * </p>
+		 * @return The name of the undoable command
+		 * 
+		 */
+		public function getCommandName():String
+		{
+			return getQualifiedClassName( this ).split["::"][1];
 		}
 	}
 }

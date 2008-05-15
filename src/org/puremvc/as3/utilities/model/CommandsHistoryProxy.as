@@ -87,6 +87,17 @@ package org.puremvc.as3.utilities.model
 		}
 		
 		/**
+		 * Indicates if there is an undo command into the history
+		 * @return Return a Boolean value indication if there is an undo command into the history 
+		 * 
+		 */
+		public function get canUndo():Boolean
+		{
+			return undoStack.length > 0;
+		}
+
+		
+		/**
 		 * Returns the REDO command 
 		 * @return The instance of the command
 		 */
@@ -106,6 +117,17 @@ package org.puremvc.as3.utilities.model
 			else
 				return null;
 		}
+		
+		/**
+		 * Indicates if there is a redo command in the history
+		 * @return True if you can redo, false otherwise 
+		 * 
+		 */
+		public function get canRedo():Boolean
+		{
+			return redoStack.length > 0;
+		}
+
 		
 		/**
 		 * Saves a command into the history.
@@ -134,6 +156,8 @@ package org.puremvc.as3.utilities.model
 			//send notification that a new command has been added to history
 			sendNotification(COMMAND_HISTORY_UPDATED, cmd ); 
 		}
+		
+		
 
 		
 	}
