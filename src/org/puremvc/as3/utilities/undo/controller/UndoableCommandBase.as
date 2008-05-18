@@ -4,16 +4,16 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 
-package org.puremvc.as3.utilities.controller
+package org.puremvc.as3.utilities.undo.controller
 {
 	import flash.utils.getQualifiedClassName;
 	
 	import org.puremvc.as3.interfaces.ICommand;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
-	import org.puremvc.as3.utilities.interfaces.IUndoableCommand;
-	import org.puremvc.as3.utilities.model.CommandsHistoryProxy;
-	import org.puremvc.as3.utilities.model.enum.UndoableCommandTypeEnum;
+	import org.puremvc.as3.utilities.undo.interfaces.IUndoableCommand;
+	import org.puremvc.as3.utilities.undo.model.CommandsHistoryProxy;
+	import org.puremvc.as3.utilities.undo.model.enum.UndoableCommandTypeEnum;
 	
 	
 	/**
@@ -73,6 +73,16 @@ package org.puremvc.as3.utilities.controller
 		}
 		
 		/**
+		 * Sets the value for the nore 
+		 * @param value The notification of type INotification
+		 * 
+		 */
+		public function setNote( value:INotification ):void
+		{
+			_note = value;
+		}
+		
+		/**
 		 * This method must be overriden in the super class.
 		 * Place here the code for the command to execute. 
 		 */
@@ -123,16 +133,16 @@ package org.puremvc.as3.utilities.controller
 		/**
 		 * Returns a display name for the undoable command.
 		 * <p>
-		 * By default, the name of the command is the name of the class.
-		 * You must override this method when ever you wnat to set a different name.
-		 * 
+		 * By default, the name of the command is the name of the notification. // of the class.
+		 * You must override this method when ever you want to set a different name.
 		 * </p>
 		 * @return The name of the undoable command
 		 * 
 		 */
 		public function getCommandName():String
 		{
-			return getQualifiedClassName( this ).split["::"][1];
+			//return getQualifiedClassName( this ).split["::"][1];
+			return getNote().getName();
 		}
 	}
 }

@@ -4,11 +4,11 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 
-package org.puremvc.as3.utilities.model
+package org.puremvc.as3.utilities.undo.model
 {
 	import org.puremvc.as3.interfaces.IProxy;
 	import org.puremvc.as3.patterns.proxy.Proxy;
-	import org.puremvc.as3.utilities.interfaces.IUndoableCommand;
+	import org.puremvc.as3.utilities.undo.interfaces.IUndoableCommand;
 
 	/**
 	 * The model that keeps track of the commands.

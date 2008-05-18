@@ -3,11 +3,14 @@
  Copyright (c) 2008 Dragos Dascalita <dragos.dascalita@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
- package org.puremvc.as3.utilities.controller
+ package org.puremvc.as3.utilities.undo.controller
 {
 	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.interfaces.INotifier;
-	import org.puremvc.as3.utilities.interfaces.IUndoableCommand;
+	import org.puremvc.as3.utilities.undo.interfaces.IUndoableCommand;
+	import org.puremvc.as3.utilities.undo.model.CommandsHistoryProxy;
+	import org.puremvc.as3.utilities.undo.model.enum.UndoableCommandTypeEnum;
 	
 
 	/**
@@ -34,6 +37,10 @@
 			trace("WARNING : " + this + " does not have 'initializeMacroCommand' implemented");
 		}
 		
+		/**
+		 * Adds a subcommand to the chain of the commands 
+		 * @param commandClassRef The command class
+		 */
 		protected function addSubCommand( commandClassRef:Class ): void
 		{
 			subCommands.push(commandClassRef);
@@ -47,9 +54,9 @@
 			
 			executeCommand();
 			
-			if ( note.getType() == UndoableCommandEnum.RECORDABLE_COMMAND )
+			if ( note.getType() == UndoableCommandTypeEnum.RECORDABLE_COMMAND )
 			{
-				var historyProxy:CommandHistoryProxy = facade.retrieveProxy( CommandHistoryProxy.NAME ) as CommandHistoryProxy;
+				var historyProxy:CommandsHistoryProxy = facade.retrieveProxy( CommandsHistoryProxy.NAME ) as CommandsHistoryProxy;
 				historyProxy.putCommand( this );
 			}
 		}
@@ -62,7 +69,7 @@
 			var noteType:String = getNote().getType();
 			
 			// DO NOT RECORD THE SUBCOMMANDS INTO THE HISTORY
-			getNote().setType( UndoableCommandEnum.NON_RECORDABLE_COMMAND );
+			getNote().setType( UndoableCommandTypeEnum.NON_RECORDABLE_COMMAND );
 			
 			for ( var i:int = 0; i< subCommands.length; i++)	
 			{

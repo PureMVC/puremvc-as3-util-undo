@@ -14,3 +14,6 @@ Release Date: 02/20/08
 1.0 - Created the main classes for the undoable system.
 
 1.1 - Updated to PureMVC 2.0.3
+
+1.2 - Updated the package structure
+	- Added UndoableMacroCommand that works with a set of subCmmands

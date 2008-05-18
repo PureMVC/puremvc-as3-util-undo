@@ -4,7 +4,7 @@
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 
-package org.puremvc.as3.utilities.model.enum
+package org.puremvc.as3.utilities.undo.model.enum
 {
 	/**
 	 * The possible types of undoable commands:

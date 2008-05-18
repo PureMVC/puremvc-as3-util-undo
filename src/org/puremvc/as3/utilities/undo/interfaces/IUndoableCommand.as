@@ -3,7 +3,7 @@
  Copyright (c) 2008 Dragos Dascalita <dragos.dascalita@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
-package org.puremvc.as3.utilities.interfaces
+package org.puremvc.as3.utilities.undo.interfaces
 {
 	import org.puremvc.as3.interfaces.ICommand;
 	import org.puremvc.as3.interfaces.INotification;
